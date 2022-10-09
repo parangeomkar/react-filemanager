@@ -1,0 +1,123 @@
+/* content begin*/
+
+.content {
+    -webkit-flex: 4;
+    -moz-flex: 4;
+    -ms-flex: 4;
+    -o-flex: 4;
+    flex: 4;
+}
+
+/* breadcrumb begin */
+
+.content .breadcrumb {
+    margin-left: 20px;
+    margin-right: 20px;
+    height: 50px;
+    line-height: 50px;
+    vertical-align: middle;
+    border-bottom: 1px solid var(--bg-light-gray);
+}
+
+.content .breadcrumb a {
+    color: var(--bg-dark-gray);
+}
+
+.content .breadcrumb i {
+    color: var(--bg-mid-gray);
+    margin: 0 10px 0 10px;
+}
+
+/* breadcrumb end */
+
+/* actions begin */
+
+.content .actions {
+    margin-left: 20px;
+    margin-right: 50px;
+    height: 50px;
+    line-height: 50px;
+    vertical-align: middle;
+    text-align: right;
+    border-bottom: 1px solid var(--bg-light-gray);
+}
+
+.content .actions a {
+    color: var(--bg-dark-gray);
+    margin-left: 10px;
+    padding: 10px;
+}
+
+/* actions end */
+
+/* file list container begin */
+
+.content .file-list .list>a,
+.content .file-list .heading {
+    color: var(--bg-dark-gray);
+    height: 50px;
+    width: 100%;
+    line-height: 50px;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    border-bottom: 1px solid var(--bg-light-gray);
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.content .file-list a {
+    color: var(--bg-dark-gray);
+}
+
+.content .file-list .file-item:hover {
+    background: var(--bg-light-gray);
+}
+
+.content .file-list .file-item:active {
+    background: var(--bg-mid-gray);
+}
+
+/* file list header begin */
+
+.content .file-list .file-name-heading {
+    flex: 4;
+    margin-right: 10px;
+}
+
+.content .file-list .file-size-heading {
+    flex: 1;
+    margin-left: 10px;
+}
+
+.content .file-list .file-modified-heading {
+    flex: 1;
+    margin-left: 10px;
+}
+
+/* file list header end */
+
+
+/* file list begin */
+
+.content .file-list .file-icon {
+    flex: 0;
+}
+
+.content .file-list .file-name {
+    flex: 4;
+    margin-left: 10px;
+}
+
+.content .file-list .file-size {
+    flex: 1;
+    margin-left: 10px;
+}
+
+.content .file-list .file-modified {
+    flex: 1;
+}
+
+/* file list end */
+/* file list container end */
+/* content end*/
