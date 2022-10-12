@@ -7,11 +7,11 @@ class File extends Component {
 
     render() {
         return (
-            <a class="file file-item" href="#">
-                <i class="file-icon fa-solid fa-file"></i>
-                <span class="file-name">{this.props.name}</span>
-                <span class="file-modified">{this.props.modified}</span>
-                <span class="file-size">{this.props.size}</span>
+            <a className="file file-item" href="#">
+                <i className="file-icon fa-solid fa-file"></i>
+                <span className="file-name">{this.props.name}</span>
+                <span className="file-modified">{this.props.modified}</span>
+                <span className="file-size">{this.props.size}</span>
             </a>
         );
     }

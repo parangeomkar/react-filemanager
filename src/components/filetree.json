@@ -1,0 +1,49 @@
+{
+    "root": {
+        "children": [
+            {
+                "name": "My Folder 1",
+                "isFolder": 1,
+                "modified": "11-10-2022",
+                "id": 1234,
+                "children": [
+                    {
+                        "name": "My Sub Folder 1",
+                        "isFolder": 1,
+                        "modified": "11-10-2022",
+                        "id": 6895,
+                        "children": []
+                    },
+                    {
+                        "name": "My sub file.mp4",
+                        "isFolder": 0,
+                        "modified": "11-10-2022",
+                        "id": 2342,
+                        "size": 19812
+                    }
+                ]
+            },
+            {
+                "name": "My Folder 2",
+                "isFolder": 1,
+                "modified": "11-10-2022",
+                "id": 6578,
+                "children": []
+            },
+            {
+                "name": "My file.txt",
+                "isFolder": 0,
+                "modified": "11-10-2022",
+                "id": 4255,
+                "size": 100
+            },
+            {
+                "name": "some_document.pdf",
+                "isFolder": 0,
+                "modified": "11-10-2022",
+                "id": 1123,
+                "size": 1242
+            }
+        ]
+    }
+}

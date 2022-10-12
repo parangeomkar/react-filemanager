@@ -7,10 +7,10 @@ class Filters extends Component {
 
     render() {
         return (
-            <div class="heading">
-                <a href="#" class="file-name-heading">Name <i class="file-icon fa-solid fa-arrow-down"></i></a>
-                <a href="#" class="file-modified-heading">Modified <i class="file-icon fa-solid fa-arrow-down"></i></a>
-                <a href="#" class="file-size-heading">Size <i class="file-icon fa-solid fa-arrow-down"></i></a>
+            <div className="heading">
+                <a href="#" className="file-name-heading">Name <i className="file-icon fa-solid fa-arrow-down"></i></a>
+                <a href="#" className="file-modified-heading">Modified <i className="file-icon fa-solid fa-arrow-down"></i></a>
+                <a href="#" className="file-size-heading">Size <i className="file-icon fa-solid fa-arrow-down"></i></a>
             </div>
         );
     }
