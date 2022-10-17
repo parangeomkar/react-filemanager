@@ -11,7 +11,8 @@ class FileListing extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			rootFolder: props.rootFolder
+			rootFolder: props.rootFolder,
+			folderTree: []
 		}
 
 		//bindings 
@@ -21,7 +22,10 @@ class FileListing extends Component {
 	folderAction(id) {
 		for (let folder of this.state.rootFolder.children) {
 			if (folder.id == id) {
-				this.setState({ rootFolder: folder });
+				this.setState({
+					rootFolder: folder,
+					folderTree: [...this.state.folderTree, { "name": folder.name, "id": folder.id }]
+				});
 			}
 		}
 	}
@@ -30,9 +34,9 @@ class FileListing extends Component {
 		let { children } = this.state.rootFolder;
 		return children.map((file, idx) => {
 			if (file.isFolder) {
-				return <Folder action={this.folderAction} id={file.id} name={file.name} modified={file.modified} key={Math.random()} />
+				return <Folder action={this.folderAction} id={file.id} name={file.name} modified={file.modified} key={idx} />
 			} else {
-				return <File id={file.id} name={file.name} modified={file.modified} size={file.size} key={Math.random()} />
+				return <File id={file.id} name={file.name} modified={file.modified} size={file.size} key={idx} />
 			}
 		})
 	}
@@ -41,7 +45,7 @@ class FileListing extends Component {
 		return (
 			<div className="content">
 				<Actions />
-				<Breadcrumb />
+				<Breadcrumb folderTree={this.state.folderTree} />
 				<div className="file-list">
 					<Filters />
 					<div className="list">
