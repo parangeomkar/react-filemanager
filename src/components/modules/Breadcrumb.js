@@ -5,22 +5,29 @@ class Breadcrumb extends Component {
     constructor(props) {
         super(props);
 
+        //bindings 
+        this.handleBreadcrumbClick = this.handleBreadcrumbClick.bind(this);
+    }
+
+    handleBreadcrumbClick(e) {
+        this.props.clickHandler(e.target.id)
     }
 
     render() {
-        console.log(this.props.folderTree)
         return (
             <div className="breadcrumb">
-                <a href="#">My Files</a>
                 {
-                    this.props.folderTree.map((folderName,idx) => {
+                    this.props.breadcrumbs.map((folder, idx) => {
                         return (<span key={idx}>
-                            <i className="fa-solid fa-angle-right"></i>
-                            <a href="#">{folderName.name}</a>
-                            </span>);
+                            <a onClick={this.handleBreadcrumbClick} id={folder.id}>{folder.name}</a>
+                            {idx < (this.props.breadcrumbs.length - 1)
+                                ? < i className="fa-solid fa-angle-right"></i>
+                                : null
+                            }
+                        </span>);
                     })
                 }
-            </div>
+            </div >
         );
     }
 }

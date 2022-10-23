@@ -21,6 +21,7 @@
 
 .content .breadcrumb a {
     color: var(--bg-dark-gray);
+    cursor: pointer;
 }
 
 .content .breadcrumb i {
