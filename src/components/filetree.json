@@ -2,6 +2,7 @@
     "root": {
         "name": "My Files",
         "id": "root",
+        "isFolder": 1,
         "children": [
             {
                 "name": "My Folder 1",
@@ -20,7 +21,7 @@
                         "name": "My sub file.mp4",
                         "isFolder": 0,
                         "modified": "11-10-2022",
-                        "id": 2342,
+                        "id": "2s43rra42",
                         "size": "t1d9a8aa12"
                     }
                 ]

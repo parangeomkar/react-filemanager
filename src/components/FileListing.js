@@ -7,50 +7,64 @@ import Filters from "./modules/Filters";
 
 import "../css/FileListing.css";
 
-const fileTree = require("./filetree.json");
-let fileTreeMap = new Map();
-
-
 class FileListing extends Component {
 	constructor(props) {
 		super(props);
 
 		//states
 		this.state = {
-			currentFolder: "root",
-			currentBreadcrumbs: [{
-				name: fileTree.root.name,
-				id: "root"
-			}]
+			currentFolder: null,
+			currentBreadcrumbs: []
 		}
 
 		//bindings 
 		this.setFolder = this.setFolder.bind(this);
+		this.createFileMap = this.createFileMap.bind(this);
+		this.listFileTree = this.listFileTree.bind(this);
 		this.breadcrumbClickHandler = this.breadcrumbClickHandler.bind(this);
 		this.folderOpenHandler = this.folderOpenHandler.bind(this);
 
-
-		//initialize
-		this.createFileMap(fileTree.root, []);
+		//global properties
+		this.fileTreeMap = new Map();
 	}
 
+	componentDidMount() {
+		//load file tree structure
+		let fileTree = require("./filetree.json");
+
+		//create map from JSON and set current working folder
+		this.createFileMap(fileTree.root, []);
+		this.setFolder(fileTree.root.id);
+	}
+
+	/**
+	 * 
+	 * @param {*} parentFolder takes an object of a parent folder
+	 * @param {*} parentTree takes an array of directories from root to current folder
+	 * @brief creates a Map data-type with folder ID as a key
+	 */
 	createFileMap(parentFolder, parentTree) {
 		parentTree.push({
 			name: parentFolder.name,
 			id: parentFolder.id
 		});
 
-		fileTreeMap.set(parentFolder.id, { ...parentFolder, "breadcrumbs": parentTree });
+		this.fileTreeMap.set(parentFolder.id, { ...parentFolder, "breadcrumbs": parentTree });
 
-		parentFolder.children.map((item) => {
-			if (item.isFolder) {
+		if (parentFolder.isFolder) {
+			parentFolder.children.map((item) => {
 				this.createFileMap(item, parentTree.slice(0));
-			}
-		});
+			});
+		}
 	}
 
+	/**
+	 * 
+	 * @param {*} folderID takes an unique ID of a folder
+	 * @brief sets current working directory
+	 */
 	setFolder(folderID) {
-		const folder = fileTreeMap.get(folderID);
+		const folder = this.fileTreeMap.get(folderID);
 
 		this.setState({
 			currentFolder: folderID,
@@ -58,16 +72,30 @@ class FileListing extends Component {
 		});
 	}
 
+	/**
+	 * 
+	 * @param {*} folderID takes an unique ID of a folder
+	 * @brief handles breadcrumb navigation functionality
+	 */
 	breadcrumbClickHandler(folderID) {
 		this.setFolder(folderID);
 	}
 
+	/**
+	 * 
+	 * @param {*} folderID takes an unique ID of a folder
+	 * @brief handles folder open functionality
+	 */
 	folderOpenHandler(folderID) {
 		this.setFolder(folderID);
 	}
 
+	/**
+	 * 
+	 * @returns JSX of file and folder list
+	 */
 	listFileTree() {
-		const folderTree = fileTreeMap.get(this.state.currentFolder);
+		const folderTree = this.fileTreeMap.get(this.state.currentFolder);
 
 		return folderTree.children.map((file, idx) => {
 			if (file.isFolder) {
@@ -86,7 +114,10 @@ class FileListing extends Component {
 				<div className="file-list">
 					<Filters />
 					<div className="list">
-						{this.listFileTree(this.state.currentFolder)}
+						{this.state.currentFolder != null
+							? this.listFileTree(this.state.currentFolder)
+							: <span>Loading...</span>
+						}
 					</div>
 				</div>
 			</div>
