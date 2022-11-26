@@ -4,7 +4,8 @@
   --bg-light-gray: #f0f0f0;
   --bg-mid-gray: #d5d5d5;
   --bg-high-gray: #a0a0a0;
-  --bg-dark-gray: #555;
+  --bg-deep-gray: #555;
+  --bg-dark-gray: #333;
   --bg-black: #000;
   --font-size-1: 12pt;
 }

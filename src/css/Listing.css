@@ -20,7 +20,7 @@
 }
 
 .content .breadcrumb a {
-    color: var(--bg-dark-gray);
+    color: var(--bg-deep-gray);
     cursor: pointer;
 }
 
@@ -44,7 +44,7 @@
 }
 
 .content .actions a {
-    color: var(--bg-dark-gray);
+    color: var(--bg-deep-gray);
     margin-left: 10px;
     padding: 10px;
 }
@@ -55,7 +55,7 @@
 
 .content .file-list .list>a,
 .content .file-list .heading {
-    color: var(--bg-dark-gray);
+    color: var(--bg-deep-gray);
     height: 50px;
     width: 100%;
     line-height: 50px;
@@ -68,11 +68,16 @@
 }
 
 .content .file-list a {
-    color: var(--bg-dark-gray);
+    color: var(--bg-deep-gray);
 }
 
 .content .file-list .file-item:hover {
     background: var(--bg-light-gray);
+}
+
+.content .file-list .file-item.item-selected {
+    background: var(--bg-mid-gray);
+    color: var(--bg-dark-gray);
 }
 
 .content .file-list .file-item:active {
@@ -118,6 +123,7 @@
 .content .file-list .file-modified {
     flex: 1;
 }
+
 
 /* file list end */
 /* file list container end */

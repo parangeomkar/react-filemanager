@@ -1,8 +1,8 @@
 import { Component } from "react";
 import "../css/Navbar.css";
-import Search from "./modules/Search";
+import Search from "./nav-modules/Search";
 
-class Navbar extends Component {
+export default class NavbarContainer extends Component {
     render() {
         return (
             <nav className="navbar">
@@ -19,5 +19,3 @@ class Navbar extends Component {
         );
     }
 }
-
-export default Navbar;
