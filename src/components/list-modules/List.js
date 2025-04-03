@@ -54,11 +54,11 @@ export default class List extends Component {
         return folderTree.children.map((file, idx) => {
             if (file.isFolder) {
                 return <Folder handleSelect={this.handleItemSelection} openHandler={this.props.setFolder}
-                    file={file} key={idx}
+                    file={file}
                     selected={selectedItems.includes(file.id) ? true : false} />
             } else {
                 return <File handleSelect={this.handleItemSelection}
-                    file={file} key={idx}
+                    file={file}
                     selected={selectedItems.includes(file.id) ? true : false} />
             }
         });
